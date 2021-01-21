@@ -1,8 +1,8 @@
 // TODO: Include packages needed for this application
-// const fs = require("fs");
+const fs = require("fs");
 const inquirer = require("inquirer");
 // const util = require("util") //library
-// const asyncWrite = util.promisify(fs.writeFile)
+const asyncWrite = (fs.writeFile)
 // TODO: Create an array of questions for user input
 
 function init() {
@@ -32,17 +32,19 @@ function init() {
     choices: ["Engineer",'manager', 'intern']
 
   },
+  // intern
   {
     type: 'input',
     name: 'school',
     message: 'What School you go to?',
   },
+  //manager
   {
     type: 'input',
     name: 'office',
     message: 'what is your office number?',
   },
-
+// engineer
   {
     type: "input",
     name: "github",
@@ -51,12 +53,13 @@ function init() {
 
   ]).then((answers) => {
           const filename = `team.html`;
-          return asyncWrite(filename, generateREADME(answers) )}
+          return asyncWrite(filename, generateHTML(answers) )}
 
       ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)});
    }
-   
-    switch (role) {
+const generateHTML = (responses) =>
+   {let Role
+    switch (responses.Role) {
     
     case "Engineer": {
        responses.github 
@@ -69,3 +72,4 @@ function init() {
     }
     
     }
+}
