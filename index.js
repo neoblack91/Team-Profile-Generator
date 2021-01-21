@@ -1,16 +1,26 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-// const util = require("util") //library
 const asyncWrite = (fs.writeFile)
+const engineer = require('./lib/engineer')
+const manager = require('./lib/manager')
+const Intern = require('./lib/intern');
+const { memberExpression } = require("@babel/types");
 // TODO: Create an array of questions for user input
+const employee=[]
+const makeHtml=[]
 
-function init() {
+function createPage(){
+ addMember()
+ makeHtml()
+}
+
+function addMember() {
   inquirer
 .prompt([
   {
     type: 'input',
-    message: 'What is your name?',
+    message: 'What is your manager name?',
     name: 'name',
   },
   {
@@ -31,7 +41,24 @@ function init() {
     name: 'Role',
     choices: ["Engineer",'manager', 'intern']
 
-  },
+  }]).then((answers) => {
+    {let Role
+    switch (Role) {
+    
+    case "Engineer": {
+       responses.github 
+    } 
+    case 'manager': {
+     responses.office
+    }
+    case 'intern': {
+      responses.school
+    }
+    case 'intern': {
+        responses.school
+      }
+   }
+   }
   // intern
   {
     type: 'input',
@@ -49,27 +76,36 @@ function init() {
     type: "input",
     name: "github",
     message: "What is your Github user name?",
-  },  
-
-  ]).then((answers) => {
-          const filename = `team.html`;
-          return asyncWrite(filename, generateHTML(answers) )}
-
-      ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)});
-   }
-const generateHTML = (responses) =>
-   {let Role
-    switch (responses.Role) {
+  },]).then((answers) => {
     
-    case "Engineer": {
-       responses.github 
-    } 
-    case 'manager': {
-     responses.office
-    }
-    case 'intern': {
-      responses.school
-    }
-    
-    }
+  {
+    type: "list",
+    name: "members",
+    message: "Would you like to add more team members?",
+    choices: ["yes", "no"],
 }
+
+  
+} ,then(members){
+    switch (Role) {
+    
+        case "Engineer": {
+           responses.github 
+        } 
+        case 'manager': {
+         responses.office
+        }
+        case 'intern': {
+          responses.school
+        }
+        case 'intern': {
+            responses.school
+          }
+       }
+   }
+   
+}   
+// const filename = `team.html`;
+    //       return asyncWrite(filename, generateHTML(answers) )}
+
+    //   ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)});
