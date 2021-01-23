@@ -47,43 +47,43 @@ function addMember() {
     switch (choices) {
     
     case "Engineer": { 
-    //   inquirer
-    //   .prompt([
-    //     {  
-    //       // engineer
-    //   type: "input",
-    // name: "github",
-    // message: "What is your Github user name?",
-    //     }
-    // ])
-    choices.role
+      inquirer
+      .prompt([
+        {  
+          // engineer
+      type: "input",
+    name: "github",
+    message: "What is your Github user name?",
+        }
+    ])
+    // choices.role
   }
          
     break 
     case "Manager": { 
-    //   inquirer
-    //   .prompt([
-    //     {  
+      inquirer
+      .prompt([
+        {  
           
-    //       type: 'input',
-    //       name: 'office',
-    //       message: 'what is your office number?',
-    //     }
-    // ])
+          type: 'input',
+          name: 'office',
+          message: 'what is your office number?',
+        }
+    ])
     choices.role
   }
     
     break
     case "Intern": { 
-    //   inquirer
-    //   .prompt([
-    //     {  
-    //      // intern
-    //   type: 'input',
-    //   name: 'school',
-    //   message: 'What School you go to?',
-    //     }
-    // ])
+      inquirer
+      .prompt([
+        {  
+         // intern
+      type: 'input',
+      name: 'school',
+      message: 'What School you go to?',
+        }
+    ])
     choices.role
   }
   }
