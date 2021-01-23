@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
+const { choices } = require("yargs");
 // const Employee = require('./lib/employee')
 // const Engineer = require('./lib/engineer')
 // const Manager = require('./lib/manager')
@@ -42,9 +43,8 @@ function addMember() {
     choices: ["Engineer",'manager', 'intern']
 
   }])
-  .then (choices => {
-    
-    switch (choices) {
+  .then (answers => { 
+    switch (answers.Role) {
     
     case "Engineer": { 
       inquirer
@@ -70,7 +70,7 @@ function addMember() {
           message: 'what is your office number?',
         }
     ])
-    choices.role
+    // choices.role
   }
     
     break
@@ -84,25 +84,22 @@ function addMember() {
       message: 'What School you go to?',
         }
     ])
-    choices.role
+    // choices.role
   }
-  }
-})
+  }})
+
 }
-
-  //   message: 'enter team members ${roleInfo}',
-  //   Name: roleInfo,
-  // },
-    
-  //   {
-  //     type: "list",
-  //     name: "members",
-  //     message: "Would you like to add more team members?",
-  //     choices: ["yes", "no"],
-  // }
-  // ]) 
-
-  // employee.push(addMember)
+then (addMore)
+inquirer
+.prompt([
+  {
+      type: "list",
+      name: "members",
+      message: "Would you like to add more team members?",
+      choices: ["yes", "no"],
+  },
+])
+  //  employee.push(addMember),
   // addHtml (addMember)
   // .then 
   // if (addMember=== "yes") {
@@ -112,7 +109,15 @@ function addMember() {
   //     makeHtml()
   //   }
 
-  // }
+
+// { message: 'enter team members ${roleInfo}',
+//     Name: roleInfo,}
+   
+//   }
+    
+  
+
+ 
 //   function makeHtml (addMember){
 //     `<!DOCTYPE html>
 // <html lang="en">
