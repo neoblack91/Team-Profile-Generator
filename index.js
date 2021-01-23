@@ -1,14 +1,14 @@
 // TODO: Include packages needed for this application
-const fs = require("fs");
 const inquirer = require("inquirer");
-const asyncWrite = (fs.writeFile)
-const engineer = require('./lib/engineer')
-const manager = require('./lib/manager')
-const Intern = require('./lib/intern');
-const { memberExpression } = require("@babel/types");
+// const Employee = require('./lib/employee')
+// const Engineer = require('./lib/engineer')
+// const Manager = require('./lib/manager')
+// const Intern = require('./lib/intern');
+
+addMember()
+
 // TODO: Create an array of questions for user input
-const employee=[]
-const makeHtml=[]
+// const employee=[]
 
 function createPage(){
  addMember()
@@ -20,13 +20,13 @@ function addMember() {
 .prompt([
   {
     type: 'input',
-    message: 'What is your manager name?',
+    message: 'What is your name?',
     name: 'name',
   },
   {
     type: 'input',
     name: 'email',
-    message: 'What is your email address name?',
+    message: 'What is your email address?',
   },
   
   {
@@ -41,71 +41,119 @@ function addMember() {
     name: 'Role',
     choices: ["Engineer",'manager', 'intern']
 
-  }]).then((answers) => {
-    {let Role
-    switch (Role) {
+  }])
+  .then (choices => {
     
-    case "Engineer": {
-       responses.github 
-    } 
-    case 'manager': {
-     responses.office
-    }
-    case 'intern': {
-      responses.school
-    }
-    case 'intern': {
-        responses.school
-      }
-   }
-   }
-  // intern
-  {
-    type: 'input',
-    name: 'school',
-    message: 'What School you go to?',
-  },
-  //manager
-  {
-    type: 'input',
-    name: 'office',
-    message: 'what is your office number?',
-  },
-// engineer
-  {
-    type: "input",
-    name: "github",
-    message: "What is your Github user name?",
-  },]).then((answers) => {
+    switch (choices) {
     
-  {
-    type: "list",
-    name: "members",
-    message: "Would you like to add more team members?",
-    choices: ["yes", "no"],
+    case "Engineer": { 
+    //   inquirer
+    //   .prompt([
+    //     {  
+    //       // engineer
+    //   type: "input",
+    // name: "github",
+    // message: "What is your Github user name?",
+    //     }
+    // ])
+    choices.role
+  }
+         
+    break 
+    case "Manager": { 
+    //   inquirer
+    //   .prompt([
+    //     {  
+          
+    //       type: 'input',
+    //       name: 'office',
+    //       message: 'what is your office number?',
+    //     }
+    // ])
+    choices.role
+  }
+    
+    break
+    case "Intern": { 
+    //   inquirer
+    //   .prompt([
+    //     {  
+    //      // intern
+    //   type: 'input',
+    //   name: 'school',
+    //   message: 'What School you go to?',
+    //     }
+    // ])
+    choices.role
+  }
+  }
+})
 }
 
-  
-} ,then(members){
-    switch (Role) {
+  //   message: 'enter team members ${roleInfo}',
+  //   Name: roleInfo,
+  // },
     
-        case "Engineer": {
-           responses.github 
-        } 
-        case 'manager': {
-         responses.office
-        }
-        case 'intern': {
-          responses.school
-        }
-        case 'intern': {
-            responses.school
-          }
-       }
-   }
-   
-}   
-// const filename = `team.html`;
-    //       return asyncWrite(filename, generateHTML(answers) )}
+  //   {
+  //     type: "list",
+  //     name: "members",
+  //     message: "Would you like to add more team members?",
+  //     choices: ["yes", "no"],
+  // }
+  // ]) 
 
-    //   ) .then (()=>{ console.log("Success!")}).catch ((err)=>{console.log(err)});
+  // employee.push(addMember)
+  // addHtml (addMember)
+  // .then 
+  // if (addMember=== "yes") {
+    
+  //     addMember()
+  //   }    else {
+  //     makeHtml()
+  //   }
+
+  // }
+//   function makeHtml (addMember){
+//     `<!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+//     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+// </head>
+// <body>
+//     <div class="jumbotron jumbotron-fluid">
+//         <div class="container">
+          
+          
+//         </div>
+//       </div>
+      
+//       <div class="card" style="width: 18rem;">
+       
+//         <div class="card-body">
+//           <h5 class="card-title"></h5>
+//           <p class="card-text"></p>
+//         </div>
+//         <ul class="list-group list-group-flush">
+//           <li class="list-group-item"></li>
+//           <li class="list-group-item"></li>
+//           <li class="list-group-item"></li>
+//         </ul>
+       
+//       </div>
+// </body>
+// </html>`
+
+//   } 
+//   function addHtml(member){
+//     return new promise (function(resolve, reject){
+//       const name = member.getName()
+//       const id = member.getId()
+//       const email = member.getEmail()
+//       const role = member.getRole()
+//       let data =""
+//     })
+//  
+   
