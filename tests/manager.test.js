@@ -13,7 +13,7 @@ describe("Manager properties", () => {
         const m = new Manager("foo", 6, "ub@gmail.com", OfficeNumber);
   
         // Assert
-        expect(m.officeNumber).toEqual(123-456-7890);
+        expect(m.officeNumber).toEqual(json.parse(123-456-7890));
       });
       // Exception test
       // it("should throw an error if not provided a 'text' value", () => {
