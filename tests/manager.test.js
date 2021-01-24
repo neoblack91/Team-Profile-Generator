@@ -1,19 +1,18 @@
-
 const Manager = require("../lib/manager.js");
-const Managaer = require("../lib/manager.js");
 
 describe("Manager properties", () => {
     describe("Checking for Office Number and role", () => {
       // Positive test
-      it("putting in Office Number", () => {
+      it("Checking Office Number", () => {
         // Arrange
-        const OfficeNumber = 123-456-7890;
+        const officeNumber = 123-456-7890;
   
         // Act
-        const m = new Manager("foo", 6, "ub@gmail.com", OfficeNumber);
+        const m = new Manager("foo", 6, "ub@gmail.com", officeNumber);
   
         // Assert
-        expect(m.officeNumber).toEqual(json.parse(123-456-7890));
+        expect(m.office).toEqual(123-456-7890);
+        
       });
       // Exception test
       // it("should throw an error if not provided a 'text' value", () => {
@@ -44,3 +43,4 @@ describe("Manager properties", () => {
       
   });
   })
+  
