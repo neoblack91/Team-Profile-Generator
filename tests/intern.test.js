@@ -1,28 +1,44 @@
 const Intern = require("../lib/intern.js");
 
-describe("Intern", () => {
-  describe("Checking for school", () => {
+describe("Intern properties", () => {
+  describe("Checking for school and role", () => {
     // Positive test
     it("putting in schoolinfo", () => {
       // Arrange
       const CollegeInfo = "UB";
 
       // Act
-      const r = new Intern("foo", 6, "ub@gmail.com", CollegeInfo);
+      const i = new Intern("foo", 6, "ub@gmail.com", CollegeInfo);
 
       // Assert
-      expect(r.school).toEqual("UB");
+      expect(i.school).toEqual("UB");
     });
     // Exception test
-    it("should throw an error if not provided a 'text' value", () => {
+    // it("should throw an error if not provided a 'text' value", () => {
+    //   // Arrange
+    //   const cb = () => new Intern();
+    //   const err = new Error(
+    //     "Expected parameter 'text' to be a non empty string"
+    //   );
+
+    //   // Assert
+    //   expect(cb).toThrowError(err);
+    // });
+    
+  });
+
+  describe("Checking for role", () => {
+    // Positive test
+    it("putting in role", () => {
       // Arrange
-      const cb = () => new Intern();
-      const err = new Error(
-        "Expected parameter 'text' to be a non empty string"
-      );
+      const roleInfo = "Intern";
+
+      // Act
+      const obj = new Intern("foo", 6, "Intern@gmail.com", roleInfo);
 
       // Assert
-      expect(cb).toThrowError(err);
+      expect(obj.getRole()).toEqual("Intern");
     });
-  });
+    
 });
+})
