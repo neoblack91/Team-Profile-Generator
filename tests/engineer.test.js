@@ -12,6 +12,7 @@ describe("Engineer properties", () => {
   
         // Assert
         expect(e.getGithub()).toEqual("neo");
+        expect(e.getRole()).toEqual("Engineer");
       });
       // Exception test
       // it("should throw an error if not provided a 'text' value", () => {
@@ -27,18 +28,4 @@ describe("Engineer properties", () => {
       
     });
   
-    describe("Checking for role", () => {
-      // Positive test
-      it("putting in role", () => {
-        // Arrange
-        const roleInfo = "Engineer";
-  
-        // Act
-        const obj = new Engineer("foo", 6, "Intern@gmail.com", roleInfo);
-  
-        // Assert
-        expect(obj.getRole()).toEqual("Engineer");
-      });
-      
-  });
   })

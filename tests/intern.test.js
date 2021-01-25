@@ -12,6 +12,7 @@ describe("Intern properties", () => {
 
       // Assert
       expect(i.school).toEqual("UB");
+      expect(i.getRole()).toEqual("Intern");
     });
     // Exception test
     // it("should throw an error if not provided a 'text' value", () => {
@@ -27,18 +28,5 @@ describe("Intern properties", () => {
     
   });
 
-  describe("Checking for role", () => {
-    // Positive test
-    it("putting in role", () => {
-      // Arrange
-      const roleInfo = "Intern";
 
-      // Act
-      const obj = new Intern("foo", 6, "Intern@gmail.com", roleInfo);
-
-      // Assert
-      expect(obj.getRole()).toEqual("Intern");
-    });
-    
-});
 })
