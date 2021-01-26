@@ -152,8 +152,8 @@ function createManager() {
               }
 
               break;
-            default:
-              makeHtml();
+            case "I dont want to add more members":
+              writeHtml();
           }
         });
     };
@@ -207,11 +207,15 @@ const makeHtml = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"/>
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-
+        <h1 class="display-4">My Team </h1>
         </div>
       </div>
 
@@ -221,10 +225,19 @@ const makeHtml = () => {
 }
 
 
-fs.writeFile('TeamProfile.html',makeHtml() , (error) => { /* handle error */ });
-
+function writeHtml() {
+  fs.writeFile('TeamProfile.html', makeHtml(), (error) => {
+    /* handle error */
+    if(error) {
+      console.log("err: ", error);
+      
+    }
+    console.log("file write")
+  });
+ }
 createManager();
-makeHtml();
+
+// makeHtml();
 //
 // const confirmAnswerValidator = async (input) => {
 //   if (input !== 'y' || input !== 'n') {

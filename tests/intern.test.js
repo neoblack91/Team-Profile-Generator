@@ -25,7 +25,14 @@ describe("Intern properties", () => {
     //   // Assert
     //   expect(cb).toThrowError(err);
     // });
-    
+    it("should throw an error if not provided a text string value", () => {
+      // Arrange
+      const ib = new Intern("", 4, "Columbia@gmail.com", "");
+        expect(() => {
+          if (ib.school === "")
+          throw new Error("Please put 'school' it needs to be a string.");
+        }).toThrow("Please put  'school' it needs to be a string.");
+    });
   });
 
 
