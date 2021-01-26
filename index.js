@@ -5,16 +5,14 @@ const Employee = require('./lib/employee')
 const Engineer = require('./lib/engineer')
 const Manager = require('./lib/manager')
 const Intern = require('./lib/intern');
-
-addMember();
-const employee = []
+const employees = []
 // TODO: Create an array of questions for user input
-// const employee=[]
 
-function createPage() {
-  addMember();
-  makeHtml();
-}
+
+// function createPage() {
+//   addMember();
+//   makeHtml();
+// }
 
 function createManager() {
   inquirer
@@ -58,7 +56,7 @@ function createManager() {
             employees.push(manager);
             addMembers();
           });
-  }
+ 
 
           function addMembers(){
             inquirer
@@ -162,45 +160,46 @@ function createManager() {
         
           break;
           default :
-          function makeHtml()
+          makeHtml()
         }
       })
     }
- 
+  }
 
-//   function makeHtml (addMember){
-//     `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-//     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-// </head>
-// <body>
-//     <div class="jumbotron jumbotron-fluid">
-//         <div class="container">
+  function makeHtml (){
+    `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
 
-//         </div>
-//       </div>
+        </div>
+      </div>
 
-//       <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;">
 
-//         <div class="card-body">
-//           <h5 class="card-title"></h5>
-//           <p class="card-text"></p>
-//         </div>
-//         <ul class="list-group list-group-flush">
-//           <li class="list-group-item"></li>
-//           <li class="list-group-item"></li>
-//           <li class="list-group-item"></li>
-//         </ul>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"></li>
+          <li class="list-group-item"></li>
+          <li class="list-group-item"></li>
+          <li class="list-group-item"></li>
+        </ul>
 
-//       </div>
-// </body>
-// </html>`
+      </div>
+</body>
+</html>`
 
-//   }
+  }
 
 //
 // const confirmAnswerValidator = async (input) => {
@@ -209,3 +208,5 @@ function createManager() {
 //   }
 //   return true;
 // };
+createManager()
+makeHtml()
