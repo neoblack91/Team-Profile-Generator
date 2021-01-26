@@ -15,19 +15,14 @@ describe("Employee properties", () => {
     })
   })
     // // //   Exception test
-    // //   it("should throw an error if not provided a 'text' value", () => {
-    // //     // Arrange
-    // //     const cb = () => new Employee();
-    // //     const err = new Error(
-    // //       "Expected parameter 'text' to be a non empty string"
-    // //     );
-  
-    // //     // Assert
-    // //     expect("jr").toThrowError(err);
-    // //   });
-      
-    // // });
-    // })
+    it("should throw an error if not provided a text string value", () => {
+      // Arrange
+      const ib = new Employee("", "", "", "");
+        expect(() => {
+          if (ib.getName() === "", ib.getId() ==="", ib.getEmail()==="")
+          throw new Error("Please put a 'name, id , email' it needs to be a string .");
+        }).toThrow("Please put a 'name, id , email' it needs to be a string .");
+    });
 
 
 

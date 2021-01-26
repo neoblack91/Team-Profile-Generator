@@ -15,17 +15,16 @@ describe("Engineer properties", () => {
         expect(e.getRole()).toEqual("Engineer");
       });
       // Exception test
-      // it("should throw an error if not provided a 'text' value", () => {
-      //   // Arrange
-      //   const cb = () => new Intern();
-      //   const err = new Error(
-      //     "Expected parameter 'text' to be a non empty string"
-      //   );
-  
-      //   // Assert
-      //   expect(cb).toThrowError(err);
-      // });
+      it("should throw an error if not provided a text string value", () => {
+        // Arrange
+        const ib = new Engineer("", 4, "Columbia@gmail.com", "");
+          expect(() => {
+            if (ib.Github === "")
+            throw new Error("Please put a 'github' it needs to be a string .");
+          }).toThrow("Please put a 'github' it needs to be a string .");
+      });
+    });
       
     });
   
-  })
+  

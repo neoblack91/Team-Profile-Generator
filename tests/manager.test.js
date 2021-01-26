@@ -15,16 +15,14 @@ describe("Manager properties", () => {
         expect(m.getRole()).toEqual("manager");
       });
       // Exception test
-      // it("should throw an error if not provided a 'text' value", () => {
-      //   // Arrange
-      //   const cb = () => new Intern();
-      //   const err = new Error(
-      //     "Expected parameter 'text' to be a non empty string"
-      //   );
-  
-      //   // Assert
-      //   expect(cb).toThrowError(err);
-      // });
+      it("should throw an error if not provided a text string value", () => {
+        // Arrange
+        const ib = new Manager("", 4, "Columbia@gmail.com", "");
+          expect(() => {
+            if (ib.officeNumber === "")
+            throw new Error("Please put a 'office number' it needs to be a string .");
+          }).toThrow("Please put a 'office number' it needs to be a string .");
+      });
       
     });
 })

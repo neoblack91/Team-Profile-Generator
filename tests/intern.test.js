@@ -15,23 +15,14 @@ describe("Intern properties", () => {
       expect(i.getRole()).toEqual("Intern");
     });
     // Exception test
-    // it("should throw an error if not provided a 'text' value", () => {
-    //   // Arrange
-    //   const cb = () => new Intern();
-    //   const err = new Error(
-    //     "Expected parameter 'text' to be a non empty string"
-    //   );
-
-    //   // Assert
-    //   expect(cb).toThrowError(err);
-    // });
+    
     it("should throw an error if not provided a text string value", () => {
       // Arrange
       const ib = new Intern("", 4, "Columbia@gmail.com", "");
         expect(() => {
           if (ib.school === "")
           throw new Error("Please put 'school' it needs to be a string.");
-        }).toThrow("Please put  'school' it needs to be a string.");
+        }).toThrow("Please put 'school' it needs to be a string.");
     });
   });
 
