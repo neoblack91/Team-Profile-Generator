@@ -1,23 +1,21 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const Employee = require('./lib/employee')
-const Engineer = require('./lib/engineer')
-const Manager = require('./lib/manager')
-const Intern = require('./lib/intern');
-const employees = []
+const Employee = require("./lib/employee");
+const Engineer = require("./lib/engineer");
+const Manager = require("./lib/manager");
+const Intern = require("./lib/intern");
+const employees = [];
 // TODO: Create an array of questions for user input
 
-
 // function createPage() {
-//   addMember();
+//
 //   makeHtml();
 // }
 
 function createManager() {
   inquirer
     .prompt([
-      
       {
         type: "input",
         message: "What is your manager name?",
@@ -36,138 +34,133 @@ function createManager() {
         name: "id",
         message: "What is your Id number?",
       },
-   
+
       {
         //manager
         type: "input",
         name: "office",
         message: "what is your office number?",
       },
+    ])
+    .then((response) => {
+      //
+      const manager = new Manager(
+        response.managername,
+        response.id,
+        response.email,
+        response.office
+      );
+      employees.push(manager);
+      addMembers();
+    })
 
-    
-    ]).then((response) => {
-              // 
-            const manager = new Manager(
-              response.managername,
-              response.id,
-              response.email,
-              response.number
-            );
-            employees.push(manager);
-            addMembers();
-          });
- 
-
-          function addMembers(){
-            inquirer
-            .prompt([
+   function addMembers() {
+      inquirer
+        .prompt([
           {
-          type: "list",
-          name: "moremembers",
-          message: "Which team member you like to add ?",
-          choices: ["Engineer", "Intern" ,"I dont want to add more members"],
+            type: "list",
+            name: "moremembers",
+            message: "Which team member you like to add ?",
+            choices: ["Engineer", "Intern", "I dont want to add more members"],
           },
-
-        ]).then((response) => {
-          switch (response.choices) {
-
-          case "Engineer": 
-          {
-            inquirer.prompt([
-              // engineer
+        ])
+        .then((response) => {
+          switch (response.moremembers) {
+            case "Engineer":
               {
-              type: "input",
-              message: "What is your name?",
-              name: "name",
-              // validate
-            },
+                inquirer
+                  .prompt([
+                    // engineer
+                    {
+                      type: "input",
+                      message: "What is your name?",
+                      name: "name",
+                      // validate
+                    },
 
-            {
-              type: "input",
-              name: "email",
-              message: "What is your email address?",
-            },
+                    {
+                      type: "input",
+                      name: "email",
+                      message: "What is your email address?",
+                    },
 
-            {
-              type: "input",
-              name: "id",
-              message: "What is your Id?",
-            },
+                    {
+                      type: "input",
+                      name: "id",
+                      message: "What is your Id?",
+                    },
 
+                    {
+                      type: "input",
+                      name: "github",
+                      message: "What is your Github user name?",
+                    },
+                  ])
+                  .then((response) => {
+                    //
+                    const engineer = new Engineer(
+                      response.name,
+                      response.id,
+                      response.email,
+                      response.github
+                    );
+                    employees.push(engineer);
+                    addMembers();
+                  });
+              }
+              break;
+            case "Intern":
               {
-                
-                type: "input",
-                name: "github",
-                message: "What is your Github user name?",
-              },
-                         
-            ]).then((response) => {
-              // 
-            const engineer = new Engineer(
-              response.name,
-              response.id,
-              response.email,
-              response.github
-            );
-            employees.push(engineer);
-            addMembers();
-            });
-            }
-          break;
-          case "Intern":
-          {
-            inquirer.prompt([
-              // intern
-              {
-                type: "input",
-                message: "What is your name?",
-                name: "name",
-                // validate
-              },
-        
-              {
-                type: "input",
-                name: "email",
-                message: "What is your email address?",
-              },
-        
-              {
-                type: "input",
-                name: "id",
-                message: "What is your Id?",
+                inquirer
+                  .prompt([
+                    // intern
+                    {
+                      type: "input",
+                      message: "What is your name?",
+                      name: "name",
+                      // validate
+                    },
 
-              },
-              {
-                
-                type: "input",
-                name: "school",
-                message: "What School you go to?",
-              },
-  
-            ]).then((response) => {
-              // 
-            const intern = new Intern(
-              response.name,
-              response.id,
-              response.email,
-              response.school
-            );
-            employees.push(intern);
-            addMembers();
-            });
-     
+                    {
+                      type: "input",
+                      name: "email",
+                      message: "What is your email address?",
+                    },
+
+                    {
+                      type: "input",
+                      name: "id",
+                      message: "What is your Id?",
+                    },
+                    {
+                      type: "input",
+                      name: "school",
+                      message: "What School you go to?",
+                    },
+                  ])
+                  .then((response) => {
+                    //
+                    const intern = new Intern(
+                      response.name,
+                      response.id,
+                      response.email,
+                      response.school
+                    );
+                    employees.push(intern);
+                    addMembers();
+                  });
+              }
+
+              break;
+            default:
+              makeHtml(console.log(employees));
           }
-        
-          break;
-          default :
-          makeHtml()
-        }
-      })
-    }
-  }
+        });
+    };
+}
 
-  function makeHtml (){
-    `<!DOCTYPE html>
+function makeHtml() {
+  `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -197,9 +190,8 @@ function createManager() {
 
       </div>
 </body>
-</html>`
-
-  }
+</html>`;
+}
 
 //
 // const confirmAnswerValidator = async (input) => {
@@ -208,5 +200,5 @@ function createManager() {
 //   }
 //   return true;
 // };
-createManager()
-makeHtml()
+createManager();
+makeHtml();
