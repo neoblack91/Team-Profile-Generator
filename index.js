@@ -153,14 +153,54 @@ function createManager() {
 
               break;
             default:
-              makeHtml(console.log(employees));
+              makeHtml();
           }
         });
     };
 }
 
-function makeHtml() {
-  `<!DOCTYPE html>
+const makeHtml = () => {
+  let employeecard = ""
+  employees.forEach(employee => {
+    
+    if (employee.type === "Intern"){
+      employeecard += 
+       `<div class="card" style="width: 18rem;">
+
+   <div class="card-body">
+  <h5 class="card-title"></h5>
+  <p class="card-text"></p>
+  </div>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item">${employee.name}</li>
+    <li class="list-group-item">${employee.id}</li>
+    <li class="list-group-item">${employee.email}</li>
+    <li class="list-group-item">${employee.school}</li>
+    </ul>
+
+  </div>`
+    }
+    else(employee.type === "Engineer");{
+      employeecard +=
+      `<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+  <h5 class="card-title"></h5>
+  <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush">
+   <li class="list-group-item">${employee.name}</li>
+   <li class="list-group-item">${employee.id}</li>
+   <li class="list-group-item">${employee.email}</li>
+   <li class="list-group-item">${employee.github}</li>
+   </ul>
+
+ </div>`
+   }
+  
+  });
+ console.log(employeecard)
+  return  `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -175,24 +215,16 @@ function makeHtml() {
         </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
-
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text"></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-          <li class="list-group-item"></li>
-        </ul>
-
-      </div>
+    ${employeecard}
 </body>
 </html>`;
 }
 
+
+fs.writeFile('TeamProfile.html',makeHtml() , (error) => { /* handle error */ });
+
+createManager();
+makeHtml();
 //
 // const confirmAnswerValidator = async (input) => {
 //   if (input !== 'y' || input !== 'n') {
@@ -200,5 +232,3 @@ function makeHtml() {
 //   }
 //   return true;
 // };
-createManager();
-makeHtml();
