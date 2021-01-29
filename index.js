@@ -18,8 +18,8 @@ function createManager() {
     .prompt([
       {
         type: "input",
-        message: "What is your manager name?",
         name: "managername",
+        message: "What is your manager name?",
         // validate
       },
 
@@ -38,17 +38,18 @@ function createManager() {
       {
         //manager
         type: "input",
-        name: "office",
+        name: "officeNumber",
         message: "what is your office number?",
       },
     ])
     .then((response) => {
       //
       const manager = new Manager(
+
         response.managername,
         response.id,
         response.email,
-        response.office
+        response.officeNumber
       );
       employees.push(manager);
       addMembers();
@@ -92,17 +93,19 @@ function createManager() {
 
                     {
                       type: "input",
-                      name: "github",
+                      name: "Github",
                       message: "What is your Github user name?",
                     },
                   ])
                   .then((response) => {
                     //
                     const engineer = new Engineer(
+                      
                       response.name,
                       response.id,
                       response.email,
-                      response.github
+                      response.Github
+                      
                     );
                     employees.push(engineer);
                     addMembers();
@@ -172,6 +175,7 @@ const makeHtml = () => {
   <p class="card-text"></p>
   </div>
    <ul class="list-group list-group-flush">
+    <li class="list-group-item">${employee.type}</li>
     <li class="list-group-item">${employee.name}</li>
     <li class="list-group-item">${employee.id}</li>
     <li class="list-group-item">${employee.email}</li>
@@ -180,7 +184,7 @@ const makeHtml = () => {
 
   </div>`
     }
-    else(employee.type === "Engineer");{
+    else if (employee.type === "Engineer");{
       employeecard +=
       `<div class="card" style="width: 18rem;">
 
@@ -189,17 +193,19 @@ const makeHtml = () => {
   <p class="card-text"></p>
   </div>
   <ul class="list-group list-group-flush">
+   <li class="list-group-item">${employee.type}</li>
    <li class="list-group-item">${employee.name}</li>
    <li class="list-group-item">${employee.id}</li>
    <li class="list-group-item">${employee.email}</li>
-   <li class="list-group-item">${employee.github}</li>
+   <li class="list-group-item">${employee.Github}</li>
    </ul>
 
  </div>`
    }
+   
   
   });
- console.log(employeecard)
+ 
   return  `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -226,7 +232,7 @@ const makeHtml = () => {
 
 
 function writeHtml() {
-  fs.writeFile('./dist/TeamProfile.html', makeHtml(), (error) => {
+  fs.writeFile('./dist/to.html', makeHtml(), (error) => {
     /* handle error */
     if(error) {
       console.log("err: ", error);
