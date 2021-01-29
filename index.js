@@ -226,7 +226,7 @@ const makeHtml = () => {
 
 
 function writeHtml() {
-  fs.writeFile('TeamProfile.html', makeHtml(), (error) => {
+  fs.writeFile('./dist/TeamProfile.html', makeHtml(), (error) => {
     /* handle error */
     if(error) {
       console.log("err: ", error);
@@ -235,6 +235,7 @@ function writeHtml() {
     console.log("file write")
   });
  }
+
 createManager();
 
 // makeHtml();
