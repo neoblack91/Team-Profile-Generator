@@ -119,8 +119,8 @@ function createManager() {
                     // intern
                     {
                       type: "input",
-                      message: "What is your name?",
                       name: "name",
+                      message: "What is your name?",
                       // validate
                     },
 
@@ -184,7 +184,7 @@ const makeHtml = () => {
 
   </div>`
     }
-    else if (employee.type === "Engineer");{
+    else if (employee.type === "Engineer"){
       employeecard +=
       `<div class="card" style="width: 18rem;">
 
@@ -202,10 +202,29 @@ const makeHtml = () => {
 
  </div>`
    }
+    else  (employee.type === "manager");{
+          employeecard +=
+          `<div class="card" style="width: 18rem;">
+
+      <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text"></p>
+      </div>
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">${employee.type}</li>
+      <li class="list-group-item">${employee.name}</li>
+      <li class="list-group-item">${employee.id}</li>
+      <li class="list-group-item">${employee.email}</li>
+      <li class="list-group-item">${employee.officeNumber}</li>
+      </ul>
+
+      </div>`
+      }
+
    
   
   });
- 
+
   return  `<!DOCTYPE html>
 <html lang="en">
 <head>
