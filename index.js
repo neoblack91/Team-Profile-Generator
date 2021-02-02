@@ -45,7 +45,6 @@ function createManager() {
     .then((response) => {
       //
       const manager = new Manager(
-
         response.managername,
         response.id,
         response.email,
@@ -53,122 +52,117 @@ function createManager() {
       );
       employees.push(manager);
       addMembers();
-    })
+    });
 
-   function addMembers() {
-      inquirer
-        .prompt([
-          {
-            type: "list",
-            name: "moremembers",
-            message: "Which team member you like to add ?",
-            choices: ["Engineer", "Intern", "I dont want to add more members"],
-          },
-        ])
-        .then((response) => {
-          switch (response.moremembers) {
-            case "Engineer":
-              {
-                inquirer
-                  .prompt([
-                    // engineer
-                    {
-                      type: "input",
-                      message: "What is your name?",
-                      name: "name",
-                      // validate
-                    },
+  function addMembers() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "moremembers",
+          message: "Which team member you like to add ?",
+          choices: ["Engineer", "Intern", "I dont want to add more members"],
+        },
+      ])
+      .then((response) => {
+        switch (response.moremembers) {
+          case "Engineer":
+            {
+              inquirer
+                .prompt([
+                  // engineer
+                  {
+                    type: "input",
+                    message: "What is your name?",
+                    name: "name",
+                    // validate
+                  },
 
-                    {
-                      type: "input",
-                      name: "email",
-                      message: "What is your email address?",
-                    },
+                  {
+                    type: "input",
+                    name: "email",
+                    message: "What is your email address?",
+                  },
 
-                    {
-                      type: "input",
-                      name: "id",
-                      message: "What is your Id?",
-                    },
+                  {
+                    type: "input",
+                    name: "id",
+                    message: "What is your Id?",
+                  },
 
-                    {
-                      type: "input",
-                      name: "Github",
-                      message: "What is your Github user name?",
-                    },
-                  ])
-                  .then((response) => {
-                    //
-                    const engineer = new Engineer(
-                      
-                      response.name,
-                      response.id,
-                      response.email,
-                      response.Github
-                      
-                    );
-                    employees.push(engineer);
-                    addMembers();
-                  });
-              }
-              break;
-            case "Intern":
-              {
-                inquirer
-                  .prompt([
-                    // intern
-                    {
-                      type: "input",
-                      name: "name",
-                      message: "What is your name?",
-                      // validate
-                    },
+                  {
+                    type: "input",
+                    name: "Github",
+                    message: "What is your Github user name?",
+                  },
+                ])
+                .then((response) => {
+                  //
+                  const engineer = new Engineer(
+                    response.name,
+                    response.id,
+                    response.email,
+                    response.Github
+                  );
+                  employees.push(engineer);
+                  addMembers();
+                });
+            }
+            break;
+          case "Intern":
+            {
+              inquirer
+                .prompt([
+                  // intern
+                  {
+                    type: "input",
+                    name: "name",
+                    message: "What is your name?",
+                    // validate
+                  },
 
-                    {
-                      type: "input",
-                      name: "email",
-                      message: "What is your email address?",
-                    },
+                  {
+                    type: "input",
+                    name: "email",
+                    message: "What is your email address?",
+                  },
 
-                    {
-                      type: "input",
-                      name: "id",
-                      message: "What is your Id?",
-                    },
-                    {
-                      type: "input",
-                      name: "school",
-                      message: "What School you go to?",
-                    },
-                  ])
-                  .then((response) => {
-                    //
-                    const intern = new Intern(
-                      response.name,
-                      response.id,
-                      response.email,
-                      response.school
-                    );
-                    employees.push(intern);
-                    addMembers();
-                  });
-              }
-
-              break;
-            case "I dont want to add more members":
-              writeHtml();
-          }
-        });
-    };
+                  {
+                    type: "input",
+                    name: "id",
+                    message: "What is your Id?",
+                  },
+                  {
+                    type: "input",
+                    name: "school",
+                    message: "What School you go to?",
+                  },
+                ])
+                .then((response) => {
+                  //
+                  const intern = new Intern(
+                    response.name,
+                    response.id,
+                    response.email,
+                    response.school
+                  );
+                  employees.push(intern);
+                  addMembers();
+                });
+            }
+            break;
+          case "I dont want to add more members":
+            writeHtml();
+        }
+      });
+  }
 }
 
 const makeHtml = () => {
-  let employeecard = ""
-  employees.forEach(employee => {
-    
-    if (employee.type === "Intern"){
-      employeecard += 
-       `<div class="card" style="width: 18rem;">
+  let employeecard = "";
+  employees.forEach((employee) => {
+    if (employee.type === "Intern") {
+      employeecard += `<div class="card" style="width: 18rem;">
 
    <div class="card-body">
   <h5 class="card-title"></h5>
@@ -182,11 +176,9 @@ const makeHtml = () => {
     <li class="list-group-item">${employee.school}</li>
     </ul>
 
-  </div>`
-    }
-    else if (employee.type === "Engineer"){
-      employeecard +=
-      `<div class="card" style="width: 18rem;">
+  </div>`;
+    } else if (employee.type === "Engineer") {
+      employeecard += `<div class="card" style="width: 18rem;">
 
   <div class="card-body">
   <h5 class="card-title"></h5>
@@ -200,11 +192,10 @@ const makeHtml = () => {
    <li class="list-group-item">${employee.Github}</li>
    </ul>
 
- </div>`
-   }
-    else  (employee.type === "manager");{
-          employeecard +=
-          `<div class="card" style="width: 18rem;">
+ </div>`;
+    } else if (employee.type === "manager")
+    {
+      employeecard += `<div class="card" style="width: 18rem;">
 
       <div class="card-body">
       <h5 class="card-title"></h5>
@@ -218,14 +209,11 @@ const makeHtml = () => {
       <li class="list-group-item">${employee.officeNumber}</li>
       </ul>
 
-      </div>`
-      }
-
-   
-  
+      </div>`;
+    }
   });
 
-  return  `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -247,27 +235,16 @@ const makeHtml = () => {
     ${employeecard}
 </body>
 </html>`;
-}
-
+};
 
 function writeHtml() {
-  fs.writeFile('./dist/to.html', makeHtml(), (error) => {
+  fs.writeFile("./dist/to.html", makeHtml(), (error) => {
     /* handle error */
-    if(error) {
+    if (error) {
       console.log("err: ", error);
-      
     }
-    console.log("file write")
+    console.log("file write");
   });
- }
+}
 
 createManager();
-
-// makeHtml();
-//
-// const confirmAnswerValidator = async (input) => {
-//   if (input !== 'y' || input !== 'n') {
-//      return 'Incorrect asnwer';
-//   }
-//   return true;
-// };
