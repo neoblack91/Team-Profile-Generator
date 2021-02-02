@@ -162,50 +162,54 @@ const makeHtml = () => {
   let employeecard = "";
   employees.forEach((employee) => {
     if (employee.type === "Intern") {
-      employeecard += `<div class="card" style="width: 18rem;">
-
-   <div class="card-body">
-  <h5 class="card-title">${employee.type}<i class="fas fa-pen"></i></li></h5>
-  <p class="card-text"></p>
-  </div>
-   <ul class="list-group list-group-flush">
+      employeecard += `
+      <div class="col-md-3">
+      <div class="cardI">
+        <div class="card-body">
+        <h5 class="card-title">${employee.type}<i class="fas fa-coffee"></i></li></h5>
+        <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">${employee.name}</li>
+        <li class="list-group-item">${employee.id}</li>
+        <li class="list-group-item">${employee.email}</li>
+        <li class="list-group-item">${employee.school}</li>
+        </ul>
+      </div>
+        </div>`;
+    } else if (employee.type === "Engineer") {
+      employeecard += `
+      <div class="col-md-3">
+      <div class="cardE">
+      <div class="card-body">
+    <h5 class="card-title">${employee.type}<i class="fas fa-coffee"></i></li></h5>
+    <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
     <li class="list-group-item">${employee.name}</li>
     <li class="list-group-item">${employee.id}</li>
     <li class="list-group-item">${employee.email}</li>
-    <li class="list-group-item">${employee.school}</li>
+    <li class="list-group-item">${employee.Github}</li>
     </ul>
-
-  </div>`;
-    } else if (employee.type === "Engineer") {
-      employeecard += `
-
-  <div class="card-body">
-  <h5 class="card-title">${employee.type}<i class="fas fa-laptop"></i></li></h5>
-  <p class="card-text"></p>
   </div>
-  <ul class="list-group list-group-flush">
-   <li class="list-group-item">${employee.name}</li>
-   <li class="list-group-item">${employee.id}</li>
-   <li class="list-group-item">${employee.email}</li>
-   <li class="list-group-item">${employee.Github}</li>
-   </ul>
-
- </div>`;
+    </div>
+      `;
     } else if (employee.type === "Manager") {
       employeecard += `
-      
+      <div class="col-md-3">
+      <div class="cardM">
       <div class="card-body">
-      <h5 class="card-title">${employee.type}<i class="fas fa-coffee"></i></li></h5>
-      <p class="card-text"></p>
-      </div>
-      <ul class="list-group list-group-flush">
-      <li class="list-group-item">${employee.name}</li>
-      <li class="list-group-item">${employee.id}</li>
-      <li class="list-group-item">${employee.email}</li>
-      <li class="list-group-item">${employee.officeNumber}</li>
-      </ul>
-
-      </div>`;
+    <h5 class="card-title">${employee.type}<i class="fas fa-coffee"></i></li></h5>
+    <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">${employee.name}</li>
+    <li class="list-group-item">${employee.id}</li>
+    <li class="list-group-item">${employee.email}</li>
+    <li class="list-group-item">${employee.officeNumber}</li>
+    </ul>
+  </div>
+    </div>`;
     }
   });
 
@@ -229,15 +233,22 @@ const makeHtml = () => {
       />
   
       <style>
-        h1 {
-          color: maroon;
-          margin-left: 40px;
-        }
-        card {
-          background-color: rebeccapurple;
-  
-        }
-      </style>
+      h1 {
+        color: maroon;
+        margin-left: 40px;
+      }
+      .cardM {
+        background-color: rgb(123, 22, 224);
+        
+      }
+      .cardI {
+        background-color: rgba(43, 42, 112, 0.678);
+
+      }.cardE {
+        background-color: rgb(25, 22, 224);
+
+      }
+    </style>
     </head>
     <body>
       <div class="jumbotron text-center">
@@ -247,14 +258,8 @@ const makeHtml = () => {
       </div>
         
       <div class="container-fluid">
-      <div class =row >
-    <div class="card-columns">
-     
-      <div class="card">
-        
-        ${employeecard}
-      </div>
-    </div>
+      <div class ="row" >
+     ${employeecard}
 
   </div>
   </div>
@@ -265,7 +270,7 @@ const makeHtml = () => {
 };
 
 function writeHtml() {
-  fs.writeFile("./dist/to.html", makeHtml(), (error) => {
+  fs.writeFile("./dist/TeamProfile.html", makeHtml(), (error) => {
     /* handle error */
     if (error) {
       console.log("err: ", error);

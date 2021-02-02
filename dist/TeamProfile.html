@@ -1,78 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"/>
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+      />
+  
+      <style>
+      h1 {
+        color: maroon;
+        margin-left: 40px;
+      }
+      .cardM {
+        background-color: rgb(123, 22, 224);
+        
+      }
+      .cardI {
+        background-color: rgba(43, 42, 112, 0.678);
+
+      }.cardE {
+        background-color: rgb(25, 22, 224);
+
+      }
+    </style>
+    </head>
+    <body>
+      <div class="jumbotron text-center">
         <div class="container">
-        <h1 class="display-4">My Team </h1>
+          <h1 class="display-4">Team Profile</h1>
         </div>
       </div>
-
-    <div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-  <h5 class="card-title"></h5>
-  <p class="card-text"></p>
-  </div>
-  <ul class="list-group list-group-flush">
-   <li class="list-group-item">Manager</li>
-   <li class="list-group-item">Rajahni</li>
-   <li class="list-group-item">12</li>
-   <li class="list-group-item">Kid101291@hotmail.com</li>
-   <li class="list-group-item">undefined</li>
-   </ul>
-
- </div><div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-  <h5 class="card-title"></h5>
-  <p class="card-text"></p>
-  </div>
-  <ul class="list-group list-group-flush">
-   <li class="list-group-item">Engineer</li>
-   <li class="list-group-item">Tom</li>
-   <li class="list-group-item">12</li>
-   <li class="list-group-item">tom@gmail.com</li>
-   <li class="list-group-item">tom12</li>
-   </ul>
-
- </div><div class="card" style="width: 18rem;">
-
-   <div class="card-body">
-  <h5 class="card-title"></h5>
-  <p class="card-text"></p>
-  </div>
-   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Intern</li>
-    <li class="list-group-item">steve</li>
+        
+      <div class="container-fluid">
+      <div class ="row" >
+     
+      <div class="col-md-3">
+      <div class="cardM">
+      <div class="card-body">
+    <h5 class="card-title">Manager<i class="fas fa-coffee"></i></li></h5>
+    <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">Rajahni</li>
     <li class="list-group-item">12</li>
-    <li class="list-group-item">steve@gmail.com</li>
-    <li class="list-group-item">UB</li>
+    <li class="list-group-item">Kid101291@hotmail.com</li>
+    <li class="list-group-item">1234567890</li>
     </ul>
-
-  </div><div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-  <h5 class="card-title"></h5>
-  <p class="card-text"></p>
   </div>
-  <ul class="list-group list-group-flush">
-   <li class="list-group-item">Intern</li>
-   <li class="list-group-item">steve</li>
-   <li class="list-group-item">12</li>
-   <li class="list-group-item">steve@gmail.com</li>
-   <li class="list-group-item">undefined</li>
-   </ul>
+    </div>
+      <div class="col-md-3">
+      <div class="cardE">
+      <div class="card-body">
+    <h5 class="card-title">Engineer<i class="fas fa-coffee"></i></li></h5>
+    <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">tom</li>
+    <li class="list-group-item">24</li>
+    <li class="list-group-item">tom@gmail.com</li>
+    <li class="list-group-item">tom24</li>
+    </ul>
+  </div>
+    </div>
+      
+      <div class="col-md-3">
+      <div class="cardI">
+        <div class="card-body">
+        <h5 class="card-title">Intern<i class="fas fa-coffee"></i></li></h5>
+        <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">bill</li>
+        <li class="list-group-item">30</li>
+        <li class="list-group-item">Bill@hotmail.com</li>
+        <li class="list-group-item">University of Baltimore</li>
+        </ul>
+      </div>
+        </div>
 
- </div>
-</body>
-</html>
+  </div>
+  </div>
+      
+    </body>
+  </html>
+  
