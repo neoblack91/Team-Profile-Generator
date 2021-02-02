@@ -165,11 +165,10 @@ const makeHtml = () => {
       employeecard += `<div class="card" style="width: 18rem;">
 
    <div class="card-body">
-  <h5 class="card-title"></h5>
+  <h5 class="card-title">${employee.type}<i class="fas fa-pen"></i></li></h5>
   <p class="card-text"></p>
   </div>
    <ul class="list-group list-group-flush">
-    <li class="list-group-item">${employee.type}</li>
     <li class="list-group-item">${employee.name}</li>
     <li class="list-group-item">${employee.id}</li>
     <li class="list-group-item">${employee.email}</li>
@@ -178,14 +177,13 @@ const makeHtml = () => {
 
   </div>`;
     } else if (employee.type === "Engineer") {
-      employeecard += `<div class="card" style="width: 18rem;">
+      employeecard += `
 
   <div class="card-body">
-  <h5 class="card-title"></h5>
+  <h5 class="card-title">${employee.type}<i class="fas fa-laptop"></i></li></h5>
   <p class="card-text"></p>
   </div>
   <ul class="list-group list-group-flush">
-   <li class="list-group-item">${employee.type}</li>
    <li class="list-group-item">${employee.name}</li>
    <li class="list-group-item">${employee.id}</li>
    <li class="list-group-item">${employee.email}</li>
@@ -193,16 +191,14 @@ const makeHtml = () => {
    </ul>
 
  </div>`;
-    } else if (employee.type === "manager")
-    {
-      employeecard += `<div class="card" style="width: 18rem;">
-
+    } else if (employee.type === "Manager") {
+      employeecard += `
+      
       <div class="card-body">
-      <h5 class="card-title"></h5>
+      <h5 class="card-title">${employee.type}<i class="fas fa-coffee"></i></li></h5>
       <p class="card-text"></p>
       </div>
       <ul class="list-group list-group-flush">
-      <li class="list-group-item">${employee.type}</li>
       <li class="list-group-item">${employee.name}</li>
       <li class="list-group-item">${employee.id}</li>
       <li class="list-group-item">${employee.email}</li>
@@ -214,27 +210,58 @@ const makeHtml = () => {
   });
 
   return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"/>
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+      />
+  
+      <style>
+        h1 {
+          color: maroon;
+          margin-left: 40px;
+        }
+        card {
+          background-color: rebeccapurple;
+  
+        }
+      </style>
+    </head>
+    <body>
+      <div class="jumbotron text-center">
         <div class="container">
-        <h1 class="display-4">My Team </h1>
+          <h1 class="display-4">Team Profile</h1>
         </div>
       </div>
+        
+      <div class="container-fluid">
+      <div class =row >
+    <div class="card-columns">
+     
+      <div class="card">
+        
+        ${employeecard}
+      </div>
+    </div>
 
-    ${employeecard}
-</body>
-</html>`;
+  </div>
+  </div>
+      
+    </body>
+  </html>
+  `;
 };
 
 function writeHtml() {
